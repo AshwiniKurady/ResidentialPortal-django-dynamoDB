@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+{%load static %}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+		.navbar {
+			margin-bottom:20px;
+			margin-top: 0px;
+			margin-left: 100px;
+			margin-right: 150px;
+			padding-top: 10px;
+			padding-bottom: 0px;
+		background: transparent;
+		}
+		.li {
+			font-family: "Trebuchet MS", Helvetica, sans-serif;
+			font-size: 1em;
+			font-weight: bold;
+		}
+
+		.container
+		{
+			margin-left: 100px;
+			margin-right: 150px;
+		}
+		body
+		{
+			height: 100%;
+			background-position:center top;
+			background-repeat: no-repeat;
+			background-size: cover;
+			font-family: "Trebuchet MS", Helvetica, sans-serif
+		}
+	<!-- Hover over login button and nav buttons--!>
+
+		ul {
+  			list-style-type: none;
+  			margin: 0;
+  			padding: 0;
+  			width: 1200px;
+  			background-color: #f1f1f1;
+		}
+
+		li a {
+  			display: block;
+  			color: #000;
+  			padding: 8px 16px;
+  			text-decoration: none;
+		}
+
+		/* Change the link color on hover */
+		li a:hover {
+  			background-color: #ffffff;
+  			color: white;
+		}
+	</style>
+    <!--Form -->
+    <style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		/* Full-width input fields */
+		input[type=text], input[type=password] {
+  			width: 100%;
+  			padding: 12px 20px;
+  			margin: 8px 0;
+  			display: inline-block;
+  			border: 1px solid #ccc;
+  			box-sizing: border-box;
+		}
+
+		/* Set a style for all buttons */
+		button {
+ 	 		background-color: #04AA6D;
+  			color: white;
+  			padding: 12px 28px;
+  			margin: 8px 0;
+  			border: none;
+  			cursor: pointer;
+  			width: 150%;
+  			font-size: 12px;
+  			border-radius: 12px;
+		}
+
+		button:hover {
+  			opacity: 0.8;
+		}
+
+		.cancelbutton {
+  			width: auto;
+  			padding: 10px 18px;
+  			background-color: #f44336;
+		}
+
+		.container2 {
+  			padding: 16px;
+		}
+		.hstyle{
+		        text-align: right;
+		        }
+
+
+		.modal {
+  			display: none;
+  			position: fixed;
+  			z-index: 1;
+  			left: 0;
+  			top: 0;
+  			width: 100%;
+  			height: 100%;
+  			overflow: auto;
+  			background-color: rgb(0,0,0);
+  			background-color: rgba(0,0,0,0.4);
+  			padding-top: 60px;
+		}
+
+		.modal-content {
+  			background-color: #fefefe;
+  			margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  			border: 1px solid #888;
+  			width: 80%; /* Could be more or less, depending on screen size */
+		}
+
+		.close {
+  			position: absolute;
+  			right: 25px;
+  			top: 0;
+  			color: #000;
+  			font-size: 35px;
+  			font-weight: bold;
+		}
+
+		.close:hover,
+		.close:focus {
+  			color: red;
+  			cursor: pointer;
+		}
+
+		}
+	</style>
+
+    <style>
+
+.hfont{
+font-family: "Trebuchet MS", Helvetica, sans-serif;
+text-align: center;
+}
+.button {
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button2 {
+  background-color: white;
+  color: black;
+  border: 2px solid #008CBA;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  text-align: center;
+  margin: 4px 2px;
+  width: 250px;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+.form {
+  text-align: center;
+}
+
+.btn{display: inline-block; margin-right: 10px;}
+
+</style>
+
+</head>
+
+<!--######################################### navigation bar  and logo ################################################-->
+<body>
+<!-- logo -->
+<div class="text-center">
+    <a href='home.html'>
+        <img height=150px src= "{% static 'images/logo.jpeg' %}"></a>
+</div>
+
+<nav class="navbar navbar-expand-md navbar-light bg-transparent">
+
+    <div class="navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+
+<!--            <li class="li nav-item active"><a class="nav-link" href="/">HOME</a></li>-->
+            <li class="li nav-item"><a class="nav-link" href="amenities_redirect">AMENITIES RESERVATION</a></li>
+            <li class="li nav-item"><a class="nav-link" href="pay">PAYMENTS</a></li>
+            <li class="li nav-item"><a class="nav-link" href="maintenance_redirect">MAINTENANCE REQUEST</a></li>
+<!--            <li class="li nav-item"><a class="nav-link" href="/FAQ">FAQs</a></li>-->
+            <li class="li nav-item"><a class="nav-link" href="Documents">DOCUMENTS</a></li>
+            <li class="li nav-item"><a class="nav-link" href="important_numbers">CONTACT EMERGENCY SUPPORT</a></li>
+
+        </ul>
+    </div>
+</nav>
+<!--######################################################################################################################-->
+<!--################## Button style for Login and Logout and Request History ###################################################-->
+
+<style>
+#Sidenav a {
+  position: absolute;
+  right: -30px;
+  transition: 0.3s;
+  padding: 10px;
+  width: 200px;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: white;
+  border-radius: 0 5px 5px 0;
+}
+
+#Sidenav a:hover {
+  right: 30px;
+}
+
+#Login {
+  top: 100px;
+  background-color: #04AA6D;
+}
+
+#Logout {
+  top: 150px;
+  background-color: #2196F3;
+}
+
+#Logout2 {
+  top: 200px;
+  color: white;
+  background-color: grey;
+}
+
+</style>
+
+<div id="Sidenav" class="Sidenav">
+    <a href="#" id="Login">Login:{{ user.username }}</a>
+    <a href="/" id="Logout">Logout</a>
+    <a onclick="requesthistory()" class="Sidenav" id="Logout2">Request History</a>
+</div>
+
+<!--##################################################################################################################-->
+
+<!--######## Html code for slot booking for Community Area, Gym and Pool #################################################-->
+<div class="container2">
+    <form method = "post" action="{% url 'amenities_slot' %}" class = "form">{% csrf_token %}
+        <br><br><h2 class="hfont">Community Area</h2>
+        <form method="post" name="book_slot_community_area" class = "form">{% csrf_token %}
+            <label for="slot">Date:</label>
+            <input type="date" id="slot" name="slot">
+            <button class="button button2" class="hfont" name="book_slot_community_area">Book slot</button>
+            {% for message in messages %}
+                {% if 'community_area' in message.tags %}
+                    <div class="alert alert-success">
+                        <a class="close" href="#" data-dismiss="alert">×</a>
+                        {{ message }}
+                    </div>
+                {%endif%}
+            {% endfor %}
+        </form>
+    </form>
+    <form method = "post" action="{% url 'amenities_slot' %}" class = "form">{% csrf_token %}
+
+        <br><br><h2 class="hfont">Gym Area</h2>
+        <form method="post" name="book_slot_gym_area" class="form">{% csrf_token %}
+            <label for="gymslot">Date:</label>
+            <input type="date" id="gymslot" name="gymslot">
+            <button class="button button2" class="hfont" name="book_slot_gym_area">Book slot</button>
+            {% for message in messages %}
+                {% if 'gym_area' in message.tags %}
+                    <div class="alert alert-success">
+                        <a class="close" href="#" data-dismiss="alert">×</a>
+                        {{ message }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </form>
+    </form>
+
+    <form method = "post" action="{% url 'amenities_slot' %}" class = "form">{% csrf_token %}
+        <br><br><h2 class="hfont">Pool Area</h2>
+        <form method="post" name="book_slot_pool_area" class="form">{% csrf_token %}
+            <label for="poolslot">Date:</label>
+            <input type="date" id="poolslot" name="poolslot">
+            <button class="button button2" class="hfont" name="book_slot_pool_area">Book slot</button>
+            {% for message in messages %}
+            {% if 'pool_area' in message.tags %}
+            <div class="alert alert-success">
+                <a class="close" href="#" data-dismiss="alert">×</a>
+                {{ message }}
+            </div>
+            {% endif %}
+            {% endfor %}
+        </form>
+    </form>
+
+</div>
+<!--#################################################################################################################-->
+
+
+<!--################################### HTML tag and Script for Request history##########################################################-->
+<div id="amenitiesTable" class="container" style="display:none">
+    <h2 class="text-center"><u>Request History</u></h2><br>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>Apartment</th>
+            <th>Reserved Area</th>
+            <th>Reserved Date</th>
+        </tr>
+        </thead>
+        {% for reservation in amenities %}
+            {% if reservation.renter_id == user.renter_id %}
+                <tbody>
+                <tr>
+                    <td>{{reservation.renter_id}}</td>
+                    <td>{{reservation.property_id}}</td>
+                    <td>{{reservation.Reserved_area}}</td>
+                    <td>{{reservation.Reserved_slot}}</td>
+                </tr>
+                <td>
+                    <form action="#" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" value="{{ reservation.renter_id }}" name="renter_id"/>
+                        <input type="hidden" value="{{ reservation.Reserved_area }}" name="Reserved_area"/>
+                        <input type="submit" class="btn" value="Cancel" name="del_amen">
+                    </form>
+
+                </td>
+                </tbody>
+            {% endif %}
+        {% endfor %}
+    </table>
+</div>
+
+<script>
+    function requesthistory() {
+      if(document.getElementById("amenitiesTable").style.display == 'block'){
+        document.getElementById("amenitiesTable").style.display = 'none'
+      } else {
+        document.getElementById("amenitiesTable").style.display = 'block'
+      }
+    }
+
+    function remove_update(){
+         if(document.getElementById("amenitiesTable").style.display == 'block'){
+        document.getElementById("amenitiesTable").style.display = 'none'
+      } else {
+        document.getElementById("amenitiesTable").style.display = 'block'
+      }
+    }
+</script>
+<!--##################################################################################################################-->
+</body>
+</html>

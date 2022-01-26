@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+{%load static %}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<style type="text/css">
+		.navbar {
+			margin-bottom:20px;
+			margin-top: 0px;
+			margin-left: 100px;
+			margin-right: 150px;
+			padding-top: 10px;
+			padding-bottom: 0px;
+		background: transparent;
+		}
+		.li {
+			font-family: "Trebuchet MS", Helvetica, sans-serif;
+			font-size: 1em;
+			font-weight: bold;
+		}
+
+		.container
+		{
+			margin-left: 100px;
+			margin-right: 150px;
+		}
+		body
+		{
+			height: 100%;
+			background-position:center top;
+			background-repeat: no-repeat;
+			background-size: cover;
+			font-family: "Trebuchet MS", Helvetica, sans-serif
+		}
+	<!-- Hover over login button and nav buttons--!>
+
+		ul {
+  			list-style-type: none;
+  			margin: 0;
+  			padding: 0;
+  			width: 1200px;
+  			background-color: #f1f1f1;
+		}
+
+		li a {
+  			display: block;
+  			color: #000;
+  			padding: 8px 16px;
+  			text-decoration: none;
+		}
+
+		/* Change the link color on hover */
+		li a:hover {
+  			background-color: #ffffff;
+  			color: white;
+		}
+	</style>
+<body>
+
+<div class="text-center">
+    <a href='home.html'>
+        <img height=150px src= "{% static 'images/logo.jpeg' %}"></a>
+</div>
+
+<nav class="navbar navbar-expand-md navbar-light bg-transparent">
+    <div class="navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="li nav-item"><a class="nav-link" href="amenities_redirect">AMENITIES RESERVATION</a></li>
+            <li class="li nav-item"><a class="nav-link" href="pay">PAYMENTS</a></li>
+            <li class="li nav-item"><a class="nav-link" href="maintenance_redirect">MAINTENANCE REQUEST</a></li>
+<!--            <li class="li nav-item"><a class="nav-link" href="/userpage/FAQ">FAQs</a></li>-->
+            <li class="li nav-item"><a class="nav-link" href="Documents">DOCUMENTS</a></li>
+            <li class="li nav-item"><a class="nav-link" href="important_numbers">CONTACT EMERGENCY SUPPORT</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+<!--################## Button style for Login and Logout ###################################################-->
+
+<style>
+#Sidenav a {
+  position: absolute;
+  right: -30px;
+  transition: 0.3s;
+  padding: 10px;
+  width: 200px;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: white;
+  border-radius: 0 5px 5px 0;
+}
+
+#Sidenav a:hover {
+  right: 30px;
+}
+
+#Login {
+  top: 100px;
+  background-color: #04AA6D;
+}
+
+#Logout {
+  top: 150px;
+  background-color: #2196F3;
+}
+
+</style>
+
+<div id="Sidenav" class="Sidenav">
+    <a href="#" id="Login">Login:{{ user.username }}</a>
+    <a href="/" id="Logout">Logout</a>
+</div>
+
+<!--##################################################################################################################-->
+
+<div class="container">
+    <p><b>24/7 Maintenance Emergency - </b>(480) 527 624</p>
+    <p><b>Courtesy Patrol  - </b>(480) 527 655</p>
+    <p><b>Community Office  - </b>(480) 453 727</p>
+    <p><b>Community Email  - </b>community@sunshine.com</p>
+</div>
+</body>
+</html>

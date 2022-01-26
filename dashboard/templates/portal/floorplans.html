@@ -1,0 +1,327 @@
+<!-- Floorplan reference taken from http://chnw.org/goose-hollow-property/ -->
+
+
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+		<style type="text/css">
+			.navbar {
+				margin-bottom:20px;
+				margin-top: 0px;
+				margin-left: 100px;
+				margin-right: 150px;
+				padding-top: 3px;
+				padding-bottom: 0px;
+				background: transparent;
+				
+			}
+			.li {
+				font-family: "Trebuchet MS", Helvetica, sans-serif;
+				font-size: 1em;
+				font-weight: bold;
+			}
+
+			.container<div class="twelve columns alpha">r
+			{
+				margin-left: 200px;
+				margin-right: 150px;
+			}
+
+			body
+			{
+				height: 100%; 
+				background-position:center;
+				width: 100%;
+				font-family: "Trebuchet MS", Helvetica, sans-serif
+			}
+		</style>
+
+	<!--Login Form -->
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		/*style for all buttons */
+		button {
+ 	 		background-color: #04AA6D;
+  			color: white;
+  			padding: 14px 20px;
+  			margin: 8px 0;
+  			border: none;
+  			cursor: pointer;
+  			width: 100%;
+		}
+
+		button:hover {
+  			opacity: 0.8;
+		}
+
+
+		.cancelbutton {
+  			width: auto;
+  			padding: 10px 18px;
+  			background-color: #f44336;
+		}
+
+		/* Center the image and position the close button */
+		.imgcontainer {
+  			text-align: center;
+  			margin: 30px 0 15px 0;
+  			position: relative;
+		}
+
+		.container2 {
+  			padding: 16px;
+		}
+
+		.modal {
+  			display: none; 
+  			position: fixed;
+  			z-index: 1;
+  			left: 0;
+  			top: 0;
+  			width: 100%; 
+  			height: 100%; 
+  			overflow: auto;
+  			background-color: rgb(0,0,0);
+  			background-color: rgba(0,0,0,0.4);
+  			padding-top: 60px;
+		}
+
+		.modal-content {
+  			background-color: #fefefe;
+  			margin: 5% auto 15% auto;
+  			border: 1px solid #888;
+  			width: 80%; 
+		}
+
+		.close {
+  			position: absolute;
+  			right: 25px;
+  			top: 0;
+  			color: #000;
+  			font-size: 35px;
+  			font-weight: bold;
+		}
+
+		.close:hover,
+		.close:focus {
+  			color: red;
+  			cursor: pointer;
+		}
+		}
+	</style>
+
+	</head>
+	<body>
+
+	<div class="text-center">
+		<a href='index'>
+			<img height=150px src= "{% static 'images/logo.jpeg' %}"></a>
+	</div>
+
+
+		<nav class="navbar navbar-expand-md navbar-light bg-transparent">
+			<div class="navbar-collapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="li nav-item"><a class="nav-link" href="/">HOME</a></li>
+					<li class="li nav-item active"><a class="nav-link" href="floorplans">FLOORPLANS</a></li>
+					<li class="li nav-item"><a class="nav-link" href="amenities">AMENITIES</a></li>
+					<li class="li nav-item"><a class="nav-link" href="gallery">GALLERY</a></li>
+					<li class="li nav-item"><a class="nav-link" href="FAQ">FAQs</a></li>
+
+				</ul>
+			</div>
+		</nav>
+
+			<div id = "roomContainer" class="container">
+			<div class="row content">	
+				<div class="col-md-4">
+					<div class="text-center">
+					<h3>1 Bedroom</h3>
+					</div>
+					<img height=200px width = 200px src="{% static 'images/1bed.png' %}" onclick="document.getElementById('popup1bed').style.display='block'">
+				</div>
+				
+				<div class="col-md-4">
+					<div class="text-center">
+          				<h3>2 Bedroom</h3>
+					</div>
+					<img height=200px width = 200px src="{% static 'images/2bed.png' %}" onclick="document.getElementById('popup2bed').style.display='block'">
+				</div>
+				
+					<div class="col-md-4">
+						<div class="text-center">
+         					<h3>Studio</h3>
+						</div>
+					<img height=200px width = 300px src="{% static 'images/studio.png' %}" onclick="document.getElementById('popupstud').style.display='block'">
+					</div>
+			</div>
+			</div>
+	<div id="formSubmittedPage" class="container">
+		<div class="col-md-12">
+			<div class="text-center">
+				<h3>Thank you for contacting us!</h3>
+				<br>
+				<h3>Your request has been successfully submitted.</h3>
+				<br>
+				<br>
+				<h4>Please click on the Floorplans to view all the available options</h4>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		var x = document.getElementById("formSubmittedPage");
+		x.style.display = "none";
+	</script>
+
+	<script>
+
+		// When the user clicks anywhere outside of the modal, close it
+
+		function postSubmitAction(){
+		document.getElementById('roomContainer').style.display='none'
+		document.getElementById('popup1bed').style.display = 'none'
+		document.getElementById('popup2bed').style.display = 'none'
+		document.getElementById('popupstud').style.display = 'none'
+		document.getElementById('submitForm').style.display='block'
+		document.getElementById('formSubmittedPage').style.display='block'
+		}
+	</script>
+
+	<div id="popup1bed" class="modal">
+		<div class="modal-content animate">{% csrf_token %}
+			<div class="imgcontainer">
+				<span onclick="document.getElementById('popup1bed').style.display='none'" class="close" title="Close Modal">&times;</span>
+			</div>
+
+			<div class="container2">
+				<label for="uname"><b>Floorplan for 1 Bedroom apartment</b></label>
+				<img height=400px width = 400px class = "center" src="{% static 'images/1bed.png' %}" name="uname">
+				<button onclick="postSubmitAction()">Request for this Unit</button>
+			</div>
+
+			<div class="container2" style="background-color:#f1f1f1">
+				<button type="button" onclick="document.getElementById('popup1bed').style.display='none'" class="cancelbutton">Cancel</button>
+			</div>
+
+		</div>
+	</div>
+
+	<div id="popup2bed" class="modal">
+
+		<div class="modal-content animate">{% csrf_token %}
+    		<div class="imgcontainer">
+			<span onclick="document.getElementById('popup2bed').style.display='none'" class="close" title="Close Modal">&times;</span>
+    		</div>
+
+    		<div class="container2">
+      			<label for="uname"><b>Floorplan for 2 Bedroom apartment</b></label>
+      			<img height=400px width = 400px class = "center" src="{% static 'images/2bed.png' %}" name="uname">
+				<button onclick="postSubmitAction()">Request for this Unit</button>
+    		</div>
+
+    		<div class="container2" style="background-color:#f1f1f1">
+      			<button type="button" onclick="document.getElementById('popup2bed').style.display='none'" class="cancelbutton">Cancel</button>
+    		</div>
+
+  		</div>
+	</div>
+
+	<div id="popupstud" class="modal">
+
+		<div class="modal-content animate">{% csrf_token %}
+    		<div class="imgcontainer">
+			<span onclick="document.getElementById('popupstud').style.display='none'" class="close" title="Close Modal">&times;</span>
+    		</div>
+
+    		<div class="container2">
+      			<label for="uname"><b>Floorplan for Studio apartment</b></label>
+      			<img height=400px width = 400px class = "center" src="{% static 'images/studio.png' %}" name="uname">
+				<button onclick="postSubmitAction()">Request for this Unit</button>
+    		</div>
+
+    		<div class="container2" style="background-color:#f1f1f1">
+      			<button type="button" onclick="document.getElementById('popupstud').style.display='none'" class="cancelbutton">Cancel</button>
+    		</div>
+
+  		</div>
+	</div>
+
+	<div id="submitForm" class="modal">
+
+		<form class="modal-content animate" method="post" action="{% url 'applyForApartment'%}" id="applySubmission">{% csrf_token %}
+			<div class="container2">
+				<h1>We would like to contact you with our best offer</h1>
+				<br>
+				<br>
+				<label for="name"><b>Please enter your name</b></label>
+				<input type="text" id="name" placeholder="Enter name" name="name" required>
+				<br>
+				<br>
+				<label for="email"><b>Please enter your email id</b></label>
+				<input type="email" id="email" placeholder="Enter Email" name="email" required>
+				<br>
+				<br>
+				<label for="phone"><b>Please enter your contact number</b></label>
+				<input type="tel" id="phone" name="phone" required>
+				<br>
+				<br>
+				<button type="submit">Submit</button>
+			</div>
+
+			<div class="container2" style="background-color:#f1f1f1">
+				<button type="button" onclick="document.getElementById('submitForm').style.display='none'" class="cancelbutton">Cancel</button>
+			</div>
+
+		</form>
+	</div>
+
+	<script>
+
+		var onebed = document.getElementById('popup1bed');
+		var twobed = document.getElementById('popup2bed');
+		var stud = document.getElementById('popupstud');
+		var submitForm = document.getElementById('submitForm');
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+    			if (event.target == onebed||event.target == twobed || event.target ==stud) {
+        		onebed.style.display = "none";
+				twobed.style.display = "none" ;
+				stud.style.display = "none";
+				submitForm.display = "none";
+    			}
+		}
+
+		$("#applySubmission").submit(function(event) {
+        // Stop form from submitting normally
+        event.preventDefault();
+        var applyForm = $(this);
+        // Send the data using post
+        var posting = $.post( applyForm.attr('action'), applyForm.serialize() );
+        // if success:
+        posting.done(function(data) {
+			document.getElementById('submitForm').style.display='none'
+        });
+        // if failure:
+        posting.fail(function(data) {
+			console.log('fail')
+        });
+    });
+	</script>
+
+</body>
+</html>

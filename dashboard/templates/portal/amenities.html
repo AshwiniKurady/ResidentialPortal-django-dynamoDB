@@ -1,0 +1,120 @@
+<!-- Reference for amenities is taken from https://github.com/sniklaus/teaching-webdev -->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+		<style type="text/css">
+			.navbar {
+				margin-bottom:20px;
+				margin-top: 0px;
+				margin-left: 100px;
+				margin-right: 150px;
+				padding-top: 3px;
+				padding-bottom: 0px;
+				
+			}
+			.li {
+				font-family: "Trebuchet MS", Helvetica, sans-serif;
+				font-size: 1em;
+				font-weight: bold;
+			}
+
+			.container
+			{
+				margin-left: 0;
+				margin-right: 15px;
+			}
+
+			body
+			{
+				height: 100%; 
+				background-position:center;
+				width: 100%;
+				font-family: "Trebuchet MS", Helvetica, sans-serif
+			}
+		</style>
+	</head>
+	<body>
+
+
+	<!-- code to display the website logo -->
+	<div class="text-center">
+		<a href='index'>
+			<img height=150px src= "{% static 'images/logo.jpeg' %}"></a>
+	</div>
+
+<!-- code to display navbar -->
+
+		<nav class="navbar navbar-expand-md navbar-light bg-transparent">
+			<div class="navbar-collapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="li nav-item"><a class="nav-link" href="/">HOME</a></li>
+					<li class="li nav-item"><a class="nav-link" href="floorplans">FLOORPLANS</a></li>
+					<li class="li nav-item active"><a class="nav-link" href="amenities">AMENITIES</a></li>
+					<li class="li nav-item"><a class="nav-link" href="gallery">GALLERY</a></li>
+				<li class="li nav-item"><a class="nav-link" href="FAQ">FAQs</a></li>
+				</ul>
+			</div>
+		</nav>
+
+<div class="container">
+	<div class="row content" style="margin-left: 50% ; margin-right: 0">
+
+				<div class="col-md-4">
+					<div class="text-left">
+						<h2>Community Amenities</h2>
+						<br>Swimming Pool
+						<br>Spa
+						<br>Controlled Access/Gated
+						<br>Corporate Housing
+						<br>Covered Parking
+						<br>Internet Access
+						<br>Fitness Center
+						<br>Laundry Center
+						<br>Laundry Facilities
+						<br>Playground
+						<br>Public Transportation
+						<br>Short Term Lease
+						<br>On-Site Maintenance
+						<br>Minutes to San Jose International Airport
+					</div>
+				</div>
+
+				 <div class="col-md-4">
+					 <div class="text-left">
+						<h2>Apartment Amenities</h2>
+						<br>Private Patio or Balcony
+						<br>Water, Sewer, and Garbage Included in Rent
+						<br>Microwave*
+						<br>Upgraded Lighting*
+						<br>Affordable Wi-Fi Available
+						<br>Cable Ready
+						<br>Dishwasher
+						<br>Refrigerator
+						<br>Stove
+						<br>Carpeted Floors
+						<br>Furnished units available
+				 	</div>
+				 </div>
+
+				<div class="col-md-4">
+					<div class="text-left">
+						<h2>Pet Policy</h2><br>
+						<br>Cats and Dogs - Max 2 allowed
+						<br>$200 Refundable Deposit.
+					</div>
+				</div>
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,462 @@
+<html lang="en">
+{%load static %}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+		.navbar {
+			margin-bottom:20px;
+			margin-top: 0px;
+			margin-left: 100px;
+			margin-right: 150px;
+			padding-top: 10px;
+			padding-bottom: 0px;
+		background: transparent;
+		}
+		.li {
+			font-family: "Trebuchet MS", Helvetica, sans-serif;
+			font-size: 1em;
+			font-weight: bold;
+		}
+
+		.container
+		{
+			margin-left: 100px;
+			margin-right: 150px;
+		}
+		body
+		{
+			height: 100%;
+			background-position:center top;
+			background-repeat: no-repeat;
+			background-size: cover;
+			font-family: "Trebuchet MS", Helvetica, sans-serif
+		}
+	<!-- Hover over login button and nav buttons-->
+
+		ul {
+  			list-style-type: none;
+  			margin: 0;
+  			padding: 0;
+  			width: 1200px;
+  			background-color: #f1f1f1;
+		}
+
+		li a {
+  			display: block;
+  			color: #000;
+  			padding: 8px 16px;
+  			text-decoration: none;
+		}
+
+		/* Change the link color on hover */
+		li a:hover {
+  			background-color: #ffffff;
+  			color: white;
+		}
+	</style>
+    <!--Login Form -->
+    <style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		/* Full-width input fields */
+		input[type=text], input[type=password] {
+  			width: 100%;
+  			padding: 12px 20px;
+  			margin: 8px 0;
+  			display: inline-block;
+  			border: 1px solid #ccc;
+  			box-sizing: border-box;
+		}
+
+		/* Set a style for all buttons */
+		button {
+ 	 		background-color: #04AA6D;
+  			color: white;
+  			padding: 14px 20px;
+  			margin: 8px 0;
+  			border: none;
+  			cursor: pointer;
+  			width: 100%;
+		}
+
+		button:hover {
+  			opacity: 0.8;
+		}
+
+		.cancelbutton {
+  			width: auto;
+  			padding: 10px 18px;
+  			background-color: #f44336;
+		}
+
+		.container2 {
+  			padding: 16px;
+		}
+
+		.modal {
+  			display: none;
+  			position: fixed;
+  			z-index: 1;
+  			left: 0;
+  			top: 0;
+  			width: 100%;
+  			height: 100%;
+  			overflow: auto;
+  			background-color: rgb(0,0,0);
+  			background-color: rgba(0,0,0,0.4);
+  			padding-top: 60px;
+		}
+
+		.modal-content {
+  			background-color: #fefefe;
+  			margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  			border: 1px solid #888;
+  			width: 80%; /* Could be more or less, depending on screen size */
+		}
+
+		.close {
+  			position: absolute;
+  			right: 25px;
+  			top: 0;
+  			color: #000;
+  			font-size: 35px;
+  			font-weight: bold;
+		}
+
+		.close:hover,
+		.close:focus {
+  			color: red;
+  			cursor: pointer;
+		}
+	</style>
+</head>
+
+
+<body>
+<!-- logo -->
+<div class="text-center">
+    <a href='home.html'>
+        <img height=150px src= "{% static 'images/logo.jpeg' %}"></a>
+</div>
+
+<!-- navigation bar -->
+<nav class="navbar navbar-expand-md navbar-light bg-transparent">
+
+    <div class="navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="li nav-item active"><a class="nav-link" href="/">HOME</a></li>
+            <li class="li nav-item"><a class="nav-link" onclick="showTable('rentertable', this.id, this.name)" id="nav-renter" name="Renters">View Renters</a></li>
+            <li class="li nav-item"><a class="nav-link" onclick="showTable('propertiestable', this.id, this.name)" id ="nav-prop" name="Properties">View Properties</a></li>
+            <li class="li nav-item"><a class="nav-link" onclick="showTable('amenitiestable', this.id, this.name)" id ="nav-amen" name="Amenities">View Amenities</a></li>
+            <li class="li nav-item"><a class="nav-link" onclick="showTable('maintenancetable', this.id, this.name)" id ="nav-maint" name="Maintenance Requests">View Maintenance Requests</a></li>
+            <li class="li nav-item"><a class="nav-link" onclick="showTable('floorplanstable', this.id, this.name)" id ="nav-flpl" name="Interested Renters">View Interested Renters</a></li>
+            <li class="li nav-item"><a class="nav-link" onclick="showTable('documentstable', this.id, this.name)" id ="nav-docs" name="Documents">View Submitted Documents</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <ul class="navbar-nav navbar-right">
+        <button class="btn btn-light btn-md"><h3> Logged in as: </h3><p> {{ user.username }} </p></button>
+    </ul>
+
+
+<div id="rentertable" class="container" style="display:none">
+    <h2 class="text-center"><u>Renters</u></h2><br>            
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Contact</th>
+		  <th>Monthly Rent Dues</th>
+		  <th>Action</th>
+        </tr>
+      </thead>
+      {% for renter in renters %}
+      <tbody>
+        <tr>
+          <td name="property_id">{{renter.property_id}}</td>
+          <td name="username">{{renter.username}}</td>
+          <td name="renter_id">{{renter.renter_id}}</td>
+          <td name="contact">{{renter.contact}}</td>
+          <td name="rent">{{renter.rent}}</td>
+		  <td name="actionElements">
+			<button onclick="editRow(this)" class="btn btn-light btn-md" id="editBtn">Edit</button>
+		  </td>
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+</div>
+
+<div id="maintenancetable" class="container" style="display:none">
+    <h2 class="text-center"><u>Maintenance Requests</u></h2><br>            
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Username</th>
+          <th>Description</th>
+          <th>IsUrgent?</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      {% for maint in maintenance %}
+      <tbody>
+        <tr>
+          <td name="property_id">{{maint.property_id}}</td>
+          <td name="renter_id">{{maint.renter_id}}</td>
+          <td name="request_description">{{maint.request_description}}</td>
+          <td name="urgency">{{maint.urgency}}</td>
+          <td>
+              <form action="#" method="post">
+                {% csrf_token %}
+                <input type="hidden" value="{{ maint.property_id }}" name="property_id"/>
+                <input type="hidden" value="{{ maint.renter_id }}" name="renter_id"/>
+                <input type="hidden" value="{{ maint.request_description }}" name="req_desc"/>
+                <input type="hidden" value="{{ maint.urgency }}" name="urgency"/>
+                <input type="submit" class="btn" value="Resolve" name="del_maint">
+              </form>
+
+          </td>
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+</div>
+
+<div id="amenitiestable" class="container" style="display:none">
+    <h2 class="text-center"><u>Amenities</u></h2><br>            
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Amenity</th>
+		  <th>Slot Reserved</th>
+          <th>Renter</th>
+		  <th>Property</th>
+		  <th>Action</th>
+        </tr>
+      </thead>
+      {% for amenity in amenities %}
+      <tbody>
+        <tr>
+          <td name="Reserved_area">{{ amenity.Reserved_area }}</td>
+		  <td name="Reserved_slot">{{ amenity.Reserved_slot }}</td>
+          <td name="renter_id">{{ amenity.renter_id }}</td>
+		  <td name="property_id">{{ amenity.property_id }}</td>
+          <td name="actionElements">
+			<form action="#" method="post">
+                {% csrf_token %}
+                <input type="hidden" value="{{ amenity.Reserved_area }}" name="res_area"/>
+                <input type="hidden" value="{{ amenity.Reserved_slot }}" name="res_slot"/>
+                <input type="hidden" value="{{ amenity.renter_id }}" name="rid"/>
+                <input type="hidden" value="{{ amenity.property_id }}" name="pid"/>
+                <input type="submit" class="btn" value="Remove" name="del_reserve">
+              </form>
+		  </td>
+
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+</div>
+
+<div id="propertiestable" class="container" style="display:none">
+    <h2 class="text-center"><u>Properties</u></h2><br>            
+    <table class="table">
+      <thead>
+        <tr>
+			<th>Property</th>
+			<th>Rent</th>
+			<th>Current Tenant</th>
+			<th>Action</th>
+        </tr>
+      </thead>
+      {% for property in properties %}
+      <tbody>
+        <tr>
+          <td name="property_id">{{ property.property_id }}</td>
+		  <td name="rent">{{ property.rent }}</td>
+          <td name="username">{{ property.username }}</td>
+          <td name="actionElements">
+			<button onclick="editRow(this)" class="btn btn-light btn-md" id="editBtn">Edit</button>
+			<form action="#" method="post">
+                {% csrf_token %}
+                <input type="hidden" value="{{ property.property_id }}" name="pid"/>
+                <input type="hidden" value="{{ property.rent }}" name="rent"/>
+                <input type="hidden" value="{{ property.renter_id }}" name="rid"/>
+                <input type="submit" class="btn btn-light btn-md" value="Remove" name="del_property">
+            </form>
+		  </td>
+
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+</div>
+
+<div id="floorplanstable" class="container" style="display:none">
+    <h2 class="text-center"><u>Contact Interested Renters</u></h2><br>            
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Contact</th>
+		  <th>Email</th>
+          <th>Name</th>
+        </tr>
+      </thead>
+      {% for floorplan in floorplans %}
+      <tbody>
+        <tr>
+          <td name="contact_num">{{ floorplan.contact_num }}</td>
+		  <td name="email_id">{{ floorplan.email_id }}</td>
+          <td name="name">{{ floorplan.name }}</td>
+          <td name="actionElements">
+			<form action="#" method="post">
+                {% csrf_token %}
+                <input type="hidden" value="{{ floorplan.contact_num }}" name="contact"/>
+                <input type="hidden" value="{{ floorplan.email_id }}" name="eid"/>
+                <input type="hidden" value="{{ floorplan.name }}" name="nm"/>
+                <input type="submit" class="btn" value="Remove/Contacted" name="del_floorplan">
+              </form>
+		  </td>
+
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+</div>
+
+<div id="documentstable" class="container" style="display:none">
+    <h2 class="text-center"><u>Submitted Documents</u></h2><br>            
+    <table class="table">
+      <thead>
+        <tr>
+          <th>SSN</th>
+		  <th>Current Address</th>
+          <th>File Location</th>
+        </tr>
+      </thead>
+      {% for doc in documents %}
+      <tbody>
+        <tr>
+          <td name="ssn">{{ doc.ssn }}</td>
+		  <td name="current_add">{{ doc.current_add }}</td>
+          <td name="dlFile">{{ doc.dlFile }}</td>
+          <td name="actionElements"></td>
+
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+</div>
+  <script>
+	function showTable(table, elmID, elmName) {
+      if(document.getElementById(table).style.display == 'block'){
+        document.getElementById(table).style.display = 'none'
+        document.getElementById(elmID).innerHTML = 'View ' + elmName
+
+      } else {
+        document.getElementById(table).style.display = 'block'
+        document.getElementById(elmID).innerHTML = 'Hide ' + elmName
+
+      }
+    }
+
+	var editsModal = document.getElementById('edits');
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+			if (event.target == editsModal)
+			{
+					editsModal.style.display = "none";
+			}
+	}
+
+	function editRow(that) {
+		console.log(that)
+		console.log($(this))
+		var row = that.closest('tr')
+		var tabledb = that.closest('div').getAttribute('id')
+		$(row).find('td').each(function(elm){
+			if($(this).attr('name') == 'actionElements'){
+				console.log(that.querySelector("#editBtn"))
+				// $(this).getElementById('editBtn').replaceWith(`
+				// 		<input type="submit" action="{% url 'saveRow' %}" onclick="saveRow(this)" class="btn btn-light btn-md" value="Save" name="save_btn" id="saveBtn">
+				// 	`)
+				$(this).children("#editBtn:first").replaceWith(`
+				 		<input type="submit" action="{% url 'saveRow' %}" onclick="saveRow(this)" class="btn btn-light btn-md" value="Save" name="save_btn" id="saveBtn">
+				 	`)
+			} else {
+				if (tabledb == 'propertiestable' && $(this).attr('name') == 'username'){
+					//don't do anything to cell
+				} else {
+					$(this).replaceWith('<td name="'+$(this).attr('name')+'"><input type="text" placeholder="'+$(this).text()+'"></td>')
+				}
+			}
+		})
+	}
+
+	function saveRow(that) {
+		console.log(that)
+		var row = that.closest('tr')
+		var tabledb = that.closest('div').getAttribute('id')
+		var data = {
+			csrfmiddlewaretoken: '{{ csrf_token }}',
+		}
+		data['table'] = tabledb
+		$(row).find('td').each(function(elm) {
+			if($(this).attr('name') == 'actionElements') {
+				$(this).children("#saveBtn:first").replaceWith(`<button onclick="editRow(this)" class="btn btn-light btn-md" id="editBtn">Edit</button>`)
+				// $(this).replaceWith(`
+				// 	<td name="actionElements">
+				// 		<button onclick="editRow(this)" class="btn btn-light btn-md" id="editBtn">Edit</button>
+				// 	</td>`)
+			} else {
+				if (tabledb == 'propertiestable' && $(this).attr('name') == 'username') {
+					//do nothing
+				}
+				else if ($(this).find('input')[0].value) {
+					console.log($(this).find('input')[0].value)
+					data[$(this).attr('name')] = $(this).find('input')[0].value
+					$(this).replaceWith('<td name="'+ $(this).find('input')[0].value+'">'+ $(this).find('input')[0].value+'</td>')
+				} else {
+					console.log($(this).find('input').attr('placeholder'))
+					data[$(this).attr('name')] = $(this).find('input').attr('placeholder')
+					$(this).replaceWith('<td name="'+$(this).find('input').attr('placeholder')+'">'+$(this).find('input').attr('placeholder')+'</td>')
+				}
+			}
+		})
+		console.log(data)
+		var posting = $.post( that.getAttribute('action'), data)
+	}
+
+	// $("#saveRenterBtn").submit(function(event) {
+    //     // Stop form from submitting normally
+    //     event.preventDefault();
+    //     var applyForm = $(this);
+    //     // Send the data using post
+    //     var posting = $.post( applyForm.attr('action'), applyForm.serialize() )
+    //     // if success:
+    //     posting.done(function(data) {
+	// 		console.log('success')
+    //     })
+    //     // if failure:
+    //     posting.fail(function(data) {
+	// 		console.log('fail')
+    //     })
+	// })
+  </script>
+</body>
+</html>
+

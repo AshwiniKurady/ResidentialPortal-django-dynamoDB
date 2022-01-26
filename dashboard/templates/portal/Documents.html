@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+{%load static %}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+		.navbar {
+			margin-bottom:20px;
+			margin-top: 0px;
+			margin-left: 100px;
+			margin-right: 150px;
+			padding-top: 10px;
+			padding-bottom: 0px;
+		background: transparent;
+		}
+		.li {
+			font-family: "Trebuchet MS", Helvetica, sans-serif;
+			font-size: 1em;
+			font-weight: bold;
+		}
+
+		.container
+		{
+			margin-left: 100px;
+			margin-right: 150px;
+		}
+		body
+		{
+			height: 100%;
+			background-position:center top;
+			background-repeat: no-repeat;
+			background-size: cover;
+			font-family: "Trebuchet MS", Helvetica, sans-serif
+		}
+	<!-- Hover over login button and nav buttons--!>
+
+		ul {
+  			list-style-type: none;
+  			margin: 0;
+  			padding: 0;
+  			width: 1200px;
+  			background-color: #f1f1f1;
+		}
+
+		li a {
+  			display: block;
+  			color: #000;
+  			padding: 8px 16px;
+  			text-decoration: none;
+		}
+
+		/* Change the link color on hover */
+		li a:hover {
+  			background-color: #ffffff;
+  			color: white;
+		}
+	</style>
+    <!--Login Form -->
+    <style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		/* Full-width input fields */
+		input[type=text], input[type=password] {
+  			width: 100%;
+  			padding: 12px 20px;
+  			margin: 8px 0;
+  			display: inline-block;
+  			border: 1px solid #ccc;
+  			box-sizing: border-box;
+		}
+
+		/* Set a style for all buttons */
+		button {
+ 	 		background-color: #04AA6D;
+  			color: white;
+  			padding: 14px 20px;
+  			margin: 8px 0;
+  			border: none;
+  			cursor: pointer;
+  			width: 100%;
+		}
+
+		button:hover {
+  			opacity: 0.8;
+		}
+
+		.cancelbutton {
+  			width: auto;
+  			padding: 10px 18px;
+  			background-color: #f44336;
+		}
+
+		.modal {
+  			display: none;
+  			position: fixed;
+  			z-index: 1;
+  			left: 0;
+  			top: 0;
+  			width: 100%;
+  			height: 100%;
+  			overflow: auto;
+  			background-color: rgb(0,0,0);
+  			background-color: rgba(0,0,0,0.4);
+  			padding-top: 60px;
+		}
+
+		.modal-content {
+  			background-color: #fefefe;
+  			margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  			border: 1px solid #888;
+  			width: 80%; /* Could be more or less, depending on screen size */
+		}
+
+		.close {
+  			position: absolute;
+  			right: 25px;
+  			top: 0;
+  			color: #000;
+  			font-size: 35px;
+  			font-weight: bold;
+		}
+
+		.close:hover,
+		.close:focus {
+  			color: red;
+  			cursor: pointer;
+		}
+
+		}
+	</style>
+
+    <script type='text/javascript'>
+        function preview_image(event)
+        {
+         var reader = new FileReader();
+         reader.onload = function()
+         {
+          var output = document.getElementById('output_image');
+          output.src = reader.result;
+         }
+         reader.readAsDataURL(event.target.files[0]);
+        }
+
+        /* Displays file name */
+        function showFileName() {
+            var fil = document.getElementById("dlFile");
+            alert(fil.value);
+        }
+
+        /* Display 'submitted' message
+        function clickAlert() {
+            alert("Details submitted successfully!!");
+        }
+
+    </script>
+
+    <style>
+#wrapper
+{
+ text-align:center;
+ margin:200 auto;
+ padding:0px;
+ width:1000px;
+}
+#output_image
+{
+ max-width:300px;
+}
+</style>
+
+<!--    Button style for Login and Logout-->
+    <style>
+        #Sidenav a {
+              position: absolute;
+              right: -30px;
+              transition: 0.3s;
+              padding: 10px;
+              width: 200px;
+              text-decoration: none;
+              font-size: 15px;
+              font-family: "Trebuchet MS", Helvetica, sans-serif;
+              color: white;
+              border-radius: 0 5px 5px 0;
+            }
+
+        #Sidenav a:hover {
+          right: 30px;
+        }
+
+        #Login {
+          top: 100px;
+          background-color: #04AA6D;
+        }
+
+        #Logout {
+          top: 150px;
+          background-color: #2196F3;
+        }
+</style>
+
+</head>
+
+
+<body>
+<!-- logo -->
+<div class="text-center">
+    <a href='home.html'>
+        <img height=150px src= "{% static 'images/logo.jpeg' %}"></a>
+</div>
+
+<!-- navigation bar -->
+<nav class="navbar navbar-expand-md navbar-light bg-transparent">
+
+    <div class="navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="li nav-item"><a class="nav-link" href="amenities_redirect">AMENITIES RESERVATION</a></li>
+            <li class="li nav-item"><a class="nav-link" href="pay">PAYMENTS</a></li>
+            <li class="li nav-item"><a class="nav-link" href="maintenance_redirect">MAINTENANCE REQUEST</a></li>
+            <li class="li nav-item"><a class="nav-link" href="Documents">DOCUMENTS</a></li>
+            <li class="li nav-item"><a class="nav-link" href="important_numbers">CONTACT EMERGENCY SUPPORT</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div id="Sidenav" class="Sidenav">
+    <a href="#" id="Login">Login:{{ user.username }}</a>
+    <a href="/" id="Logout">Logout</a>
+</div>
+
+
+<div class="container">
+    <form method = "post" action = "{% url 'documentsUpload' %}">{% csrf_token %}
+        <h4>Upload data and documents for verification</h4>
+        <label for="current_Address"><b>Enter your current address</b></label>
+        <input type="text" id="current_Address" placeholder="Enter your current address" name="current_Address" required>
+        <br>
+        <br>
+        <label for="ssn"><b>Enter your last 4 digits of SSN number</b></label>
+        <input type="text" id="ssn" placeholder="SSN number" name="ssn" maxlength="4" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>
+        <br>
+        <br>
+        <label for="dlFile"><b>Upload your Driver's license</b></label>
+        <div id="wrapper">
+            <input type="file" accept="image/*" onchange="preview_image(event)" id="dlFile" name="dlFile" required>
+            <img id="output_image"/>
+<!--            <a href="#" onclick="showFileName()">Show file name</a>-->
+        </div>
+        <br>
+        <br>
+        <input type="checkbox" id="consent" name="consent">
+        <label for="consent"> I give my consent to use this document and details to Sunshine Apartments for verification</label>
+        <br>
+        <input type="submit" value="Submit" onclick="showAlert()">
+    </form>
+</div>
+</body>
+</html>
